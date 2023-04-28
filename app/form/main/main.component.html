@@ -1,0 +1,35 @@
+<p>main works!</p>
+
+
+<div class="container">
+  <form [formGroup]="form">
+    <label for="">id</label>
+    <input type="number" class="form-control" formControlName="id">
+    <label for="">name</label>
+    <input type="text" class="form-control" formControlName="name">
+    <div formGroupName="address">
+      <label for="">state</label>
+      <input type="text" class="form-control" formControlName="state">
+
+      <label for="">city</label>
+      <input type="text" class="form-control" formControlName="city">
+
+
+    </div>
+    <!-- <button (click)="addhobbies()">Add Hobbies</button> -->
+    <div formArrayName="hobbies" >
+      <!-- <label for="">Indoor</label> -->
+      <div *ngFor="let item of hobb.controls; let i = index">
+
+        <div formGroupName="{{i}}">
+        <input type="checkbox" class="" [value]="indoor[i].id" [formControlName]="i"/>{{indoor[i].name}}
+         <!-- <label for="">Outdoor</label> -->
+       <!-- <input type="text" class="form-control" [value]="" formControlName="outdoor"> -->
+        </div>
+      </div>
+
+    </div>
+    <button class="btn btn-success"  (click)="clc()">click</button>
+    {{form.value|json}}
+  </form>
+</div>

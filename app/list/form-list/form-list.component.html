@@ -1,0 +1,12 @@
+<p>form-list works!</p>
+
+<div class="container">
+  <table class="table">
+    <tr *ngFor="let item of arr; let i =index">
+      <td>{{item.id}}</td>
+      <td><button (click)="del(i)">delete</button></td>
+      <td><button [routerLink]="['/form',item.id]" >patch</button></td>
+    </tr>
+
+  </table>
+</div>
